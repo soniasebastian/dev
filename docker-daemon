@@ -1,0 +1,16 @@
+Quick Tip for Windows 10 : Enable "Expose Demon without TLS option"
+If you are using Windows 10 and docker version : Version 2.0.0.3 (31259) or above, you would need to Enable Expose Daemon without TLS option!
+
+Step 1: Right click on "Docker Desktop is running icon "
+
+Step 2: Click on Settings
+
+Step 3: In “General Tab” you must enable checkbox “Expose Daemon on tcp://localhost:2375 without TLS”
+
+
+
+This is the error you would see in the subsequent steps if you do not enable this - java.net.ConnectException: Connection refused: connect
+
+
+
+More details - https://github.com/spotify/docker-maven-plugin/issues/351
