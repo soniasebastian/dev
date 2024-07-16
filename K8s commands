@@ -1,4 +1,4 @@
-************  Kubernetes Commands-Yop Node and Pod *******************
+************  Kubernetes Commands-Top Node and Pod *******************
 
 1. kubectl get pods --all-namespaces
 - retriev all pods from all the namespaces kubesystem namespaces, fluentd, kube-dns, kube-proxy, metric-server...K8S CONTROL PLANE 
@@ -16,4 +16,14 @@
     * GLBCDefaultBackend is running at
     * Heapster is running at ....
     * KubeDNS is running at ....
-    * 
+    * Metrics-server
+
+7. Kubectl cluster-info dump
+
+8. kubectl top node
+  different nodes with CPU, cores, %, memory
+
+9. Kubectl top pod
+
+10. kubectl get svc (services) , ev (events) , rs (replica sets) , ns (namespaces) , kubectl get no (nodes), kubectl get po (pods)
+
