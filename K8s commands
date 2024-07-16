@@ -1,0 +1,19 @@
+************  Kubernetes Commands-Yop Node and Pod *******************
+
+1. kubectl get pods --all-namespaces
+- retriev all pods from all the namespaces kubesystem namespaces, fluentd, kube-dns, kube-proxy, metric-server...K8S CONTROL PLANE 
+
+2. KUBECTL GET PODS --ALL-NAMESPACES -L APP=HELLOWORLD-REST-API
+
+3. kubectl get services --all-namespaces
+
+4. kubectl get services --all-namespaces --sort-by=.spec.type
+
+5. kubectl get services --all-namespaces --sort-by=.metadata.name
+
+6. kubectl cluster-info
+    * Kubernetes master is running at .....
+    * GLBCDefaultBackend is running at
+    * Heapster is running at ....
+    * KubeDNS is running at ....
+    * 
