@@ -101,3 +101,23 @@ terraform console
 >  
 
 */
+# why we need tfstate? known state? state purpose link
+# Map the terraform objects to real world : compare known and actual STATE eg:type & name objects to cloud resources , AWS tags
+# track dependenceis b'w rersources create/delete resource / need metadata
+# act as cache tfstates - -- performance -refresh=false 
+
+
+# until now local state we will move to remote state
+# Git hub version control/not safe
+
+#2.  why we are creating diff projects?
+# best practice : for 1 project it might need s3 buckets, virtual servers, diff lifecycles
+# separate for managing diff resources, initilaiser, manage diff states
+
+
+#3. Bckup folder
+# when working one specific project, make change in separet project
+# change in main.tf in diff project so better to have backup folders
+
+
+
