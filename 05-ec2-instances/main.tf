@@ -7,28 +7,14 @@ terraform {
   }
 }
 
-variable "aws_key_pair" {
-  default = "~/aws/aws_keys/default_ec2.pem"
-}
-
 provider "aws" {
   region = "us-east-1"
 }
 
 resource "aws_default_vpc" "default" {}
 
-data "aws_subnet_ids" "default_subnets" {
-  vpc_id = aws_default_vpc.default.id
-}
-
-data "aws_ami" "aws_linux_2_latest" {
-  most_recent = true
-  owners      = ["amazon"]
-  filter {
-    name   = "name"
-    values = ["amzn2-ami-hvm-*"]
-  }
-}
+//HTTP Server -> SG
+//SG -> 80 TCP, 22 TCP, CIDR []
 
 resource "aws_security_group" "http_server_sg" {
   name   = "http_server_sg"
@@ -78,23 +64,19 @@ resource "aws_instance" "http_server" {
       "sudo yum install httpd -y",
       "sudo systemctl start httpd",
       "echo Welcome to my DevOps learning - Virtual Server is at ${self.public_dns} | sudo tee /var/www/html/index.html",
-      "sudo systemctl enable httpd"  // Ensure httpd starts on boot
+      "sudo systemctl enable httpd" // Ensure httpd starts on boot
     ]
   }
   #provisioner "remote-exec" {
-    #inline = [
-      #"sudo yum install httpd -y",                                                                                  
-      #"sudo service httpd start",                                                                                   
-     # "echo Welcome to my DevOps learning - Virtual Server is at ${self.public_dns} | sudo tee /var/www/html/index.html"
-    #]
+  #inline = [
+  #"sudo yum install httpd -y",                                                                                  
+  #"sudo service httpd start",                                                                                   
+  # "echo Welcome to my DevOps learning - Virtual Server is at ${self.public_dns} | sudo tee /var/www/html/index.html"
+  #]
   #}
 }
 
-
-
-
-
-
+# in28mins code
 
 /*
 variable "aws_key_pair" {
